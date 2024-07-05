@@ -195,6 +195,13 @@ const ChatPage = () => {
     setExpandedImage(image);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
   const filteredChats = chats.filter(chat => {
     const otherUserId = chat.members.find((member) => member !== currentUser.uid);
     const otherUser = chatUsers[otherUserId];
@@ -329,6 +336,7 @@ const ChatPage = () => {
                   className="flex-grow p-2 border rounded-md shadow-sm focus:ring-2 focus:ring-red-600"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
                 <button
                   className="p-2 ml-2 bg-red-600 text-white rounded-full"
