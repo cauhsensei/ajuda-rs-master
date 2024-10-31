@@ -11,8 +11,8 @@ const Map = () => {
   const [donations, setDonations] = useState([]);
   const [searchLocation, setSearchLocation] = useState('');
   const mapRef = useRef(null);
-  const infoWindowRef = useRef(null); // Use ref to store infoWindow
-  const router = useRouter(); // Add router for navigation
+  const infoWindowRef = useRef(null); 
+  const router = useRouter(); 
 
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -38,7 +38,7 @@ const Map = () => {
         const userData = userDoc.data();
         return {
           ...donation,
-          id: donationDoc.id, // Add donation ID for navigation
+          id: donationDoc.id, 
           lat: userData.lat,
           lng: userData.lng
         };
@@ -90,13 +90,12 @@ const Map = () => {
     mapRef.current = new Map(document.getElementById('map'), {
       center: currentPosition,
       zoom: 10,
-      mapId: "YOUR_MAP_ID", // Use seu próprio mapId aqui
+      mapId: "YOUR_MAP_ID", 
     });
 
     const infoWindow = new InfoWindow();
-    infoWindowRef.current = infoWindow; // Store infoWindow in ref
+    infoWindowRef.current = infoWindow; 
 
-    // Agrupar doações por localização
     const groupedDonations = donations.reduce((acc, donation) => {
       const key = `${donation.lat},${donation.lng}`;
       if (!acc[key]) {
@@ -159,7 +158,7 @@ const Map = () => {
 
   useEffect(() => {
     if (mapRef.current) {
-      const infoWindow = infoWindowRef.current; // Get infoWindow from ref
+      const infoWindow = infoWindowRef.current; 
       donations.forEach((donation, i) => {
         const pin = new google.maps.marker.PinElement({
           glyph: `${i + 1}`,

@@ -26,7 +26,7 @@ export default function Login() {
     setError('');
     try {
       await signInWithEmailAndPassword(auth, formValues.email, formValues.password);
-      // Redirecionar para a página inicial após o login bem-sucedido
+      
       router.push('/');
     } catch (error) {
       setError(error.message);
@@ -36,7 +36,7 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      // Redirecionar para a página inicial após o login bem-sucedido
+      
       router.push('/');
     } catch (error) {
       setError(error.message);

@@ -593,7 +593,6 @@ function classNames(...classes) {
         </div>
 
         
-        {/* Order summary */}
         <div className="mt-10 lg:mt-0">
           <h2 className="text-lg font-medium text-gray-900">Seus itens:</h2>
           <div className="mt-4 rounded-lg border border-gray-200 bg-white shadow-sm">
@@ -649,7 +648,7 @@ function classNames(...classes) {
               {items.length > 0 && (
               <button
                 type="button"
-                onClick={openConfirmDialog} // Continua abrindo o ConfirmDialog
+                onClick={openConfirmDialog} 
                 className="mt-4 w-full rounded-md border border-gray-300 bg-white px-4 py-3 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Finalizar agora

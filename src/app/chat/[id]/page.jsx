@@ -105,7 +105,6 @@ const ChatPage = () => {
           messages[chat.id] = doc.data();
         });
 
-        // Fetch unread messages count
         const unreadMessagesQuery = query(collection(db, 'chats', chat.id, 'messages'), where('unreadBy', 'array-contains', currentUser.uid));
         const unreadSnapshot = await getDocs(unreadMessagesQuery);
         unread[chat.id] = unreadSnapshot.size;
@@ -127,7 +126,6 @@ const ChatPage = () => {
         snapshot.forEach((doc) => messagesData.push({ id: doc.id, ...doc.data() }));
         setMessages(messagesData);
 
-        // Mark messages as read
         snapshot.forEach((doc) => {
           if (doc.data().unreadBy?.includes(currentUser.uid)) {
             updateDoc(doc.ref, {

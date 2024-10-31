@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
         setUser(JSON.parse(storedUser));
-        setLoading(false); // Assume que o usuário está carregado se armazenado no localStorage
+        setLoading(false); 
       }
     }
 

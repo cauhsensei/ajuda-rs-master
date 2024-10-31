@@ -1,6 +1,6 @@
 'use client'
 
-// components/Map.js
+
 import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
@@ -51,7 +51,6 @@ function MyMap({ setLocation }) {
           mapRef.current.panTo(newPos);
         }
 
-        // Atualizar o endereço
         const geocodeLatLng = async () => {
           const response = await fetch(
             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${newPos.lat},${newPos.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
@@ -85,7 +84,6 @@ function MyMap({ setLocation }) {
       mapRef.current.panTo(newPos);
     }
 
-    // Atualizar o endereço
     const geocodeLatLng = async () => {
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${newPos.lat},${newPos.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
@@ -106,7 +104,7 @@ function MyMap({ setLocation }) {
     mapRef.current = map;
     markerRef.current = createMarker(markerPosition);
 
-    // Adicionar evento de clique no mapa
+    // adicionaa evento de clique no mapa
     map.addListener('click', handleMapClick);
   }, [markerPosition]);
 
@@ -122,10 +120,10 @@ function MyMap({ setLocation }) {
       mapContainerStyle={containerStyle}
       center={markerPosition}
       zoom={10}
-      options={mapOptions}  // Adiciona o Map ID aqui
+      options={mapOptions}  
       onLoad={onLoad}
       onUnmount={onUnmount}
-      onClick={handleMapClick}  // Adiciona o evento de clique no mapa
+      onClick={handleMapClick}  
     />
   ) : (
     <></>

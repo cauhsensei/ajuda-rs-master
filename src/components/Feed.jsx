@@ -267,7 +267,7 @@ export default function Feed() {
 
             <div className="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
               <div className="relative mb-4">
-                {/* Barra de pesquisa adicionada */}
+                
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </div>

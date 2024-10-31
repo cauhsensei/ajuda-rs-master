@@ -89,7 +89,7 @@ const ChatListPage = () => {
   }, [chats, currentUser]);
 
   const handleChatClick = (chat) => {
-    setUnreadMessages((prev) => ({ ...prev, [chat.id]: 0 })); // Reset unread messages count for the chat
+    setUnreadMessages((prev) => ({ ...prev, [chat.id]: 0 })); 
     router.push(`/chat/${chat.id}`);
   };
 

@@ -152,9 +152,8 @@ export default function DonationDetail() {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-            {/* Image gallery */}
+            
             <TabGroup className="flex flex-col-reverse">
-              {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <TabList className="grid grid-cols-4 gap-6">
                   {donation.photos.map((image, index) => (
@@ -194,8 +193,7 @@ export default function DonationDetail() {
                 ))}
               </TabPanels>
             </TabGroup>
-
-            {/* Product info */}
+            
             <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
               <h1 className="text-3xl font-bold tracking-tight text-gray-900">{donation.title}</h1>
 
