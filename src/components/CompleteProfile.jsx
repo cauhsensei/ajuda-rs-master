@@ -32,7 +32,7 @@ export default function CompleteProfile({ user, onComplete }) {
     e.preventDefault();
     setError('');
     try {
-      // Salvar dados do usuário no Firestore
+      
       await setDoc(doc(db, "users", user.uid), {
         fullName: formValues.fullName,
         email: user.email,

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { db, auth, storage } from '@/firebase/firebaseConfig'; // Certifique-se de importar 'storage'
+import { db, auth, storage } from '@/firebase/firebaseConfig'; 
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importar funções do storage
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; 
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 
 export default function UserProfile() {
@@ -15,7 +15,7 @@ export default function UserProfile() {
     lng: '',
     fullName: '',
     whatsapp: '',
-    profileImage: '', // Adicionei profileImage para armazenar a URL da imagem
+    profileImage: '', 
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -41,7 +41,7 @@ export default function UserProfile() {
             lng: data.lng,
             fullName: data.fullName,
             whatsapp: data.whatsapp,
-            profileImage: data.profileImage || '', // Atualize para pegar a URL da imagem
+            profileImage: data.profileImage || '', 
           });
         } else {
           console.log('No such document!');
@@ -87,7 +87,7 @@ export default function UserProfile() {
 
   const handleImageUpload = async () => {
     if (selectedFile) {
-      setIsUploading(true); // Define o estado de upload
+      setIsUploading(true); 
 
       try {
         const user = auth.currentUser;
@@ -96,7 +96,6 @@ export default function UserProfile() {
           await uploadBytes(storageRef, selectedFile);
           const downloadURL = await getDownloadURL(storageRef);
 
-          // Atualize o documento do usuário com a URL da imagem
           await updateDoc(doc(db, 'users', user.uid), {
             profileImage: downloadURL,
           });
@@ -112,7 +111,7 @@ export default function UserProfile() {
       } catch (error) {
         console.error('Error uploading image:', error);
       } finally {
-        setIsUploading(false); // Libere o estado de upload
+        setIsUploading(false); 
       }
     }
   };

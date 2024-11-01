@@ -31,7 +31,7 @@ export default function Sidebar() {
     const auth = getAuth();
     try {
       await signOut(auth);
-      router.push('/login'); // Redireciona usando useRouter
+      router.push('/login'); 
     } catch (error) {
       console.error('Erro ao fazer logout:', error);
     }
@@ -121,7 +121,7 @@ export default function Sidebar() {
                                 <button
                                   onClick={() => {
                                     if (item.action) {
-                                      item.action(); // Chama a função de logout
+                                      item.action(); // chama a função de logout
                                     } else {
                                       setActiveComponent(item.name);
                                       setSidebarOpen(false);

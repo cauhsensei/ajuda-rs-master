@@ -53,7 +53,8 @@ export default function ReportPage() {
   };
 
   const removeImage = (index, e) => {
-    e.preventDefault(); // Previne o envio do formulário ao clicar no botão de remover
+    e.preventDefault(); 
+    
     setImageFiles((prevState) => prevState.filter((_, i) => i !== index));
     setSelectedFiles((prevState) => prevState.filter((_, i) => i !== index));
   };
